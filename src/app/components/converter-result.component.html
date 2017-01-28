@@ -1,0 +1,46 @@
+<div class="col-sm-6">
+
+  <!-- Conversion result. -->
+  <div class="converter-block-result-wrapper span6">
+    <div class="converter-block-result">
+
+      <div *ngIf="!error">
+
+        <div *ngIf="tickerResult" class="converter-block-result-exchangerate">
+
+          <span class="nowrap">
+          <span *ngIf="converter.direction === Direction.TO_BTC">{{converter.currency.sign}}</span>
+          <span *ngIf="converter.direction === Direction.FROM_BTC">&#x0e3f;</span>
+          {{converter.amount | integerPipe | number:'1.2-2'}}
+          </span>
+          =
+          <span class="nowrap">
+          <span *ngIf="converter.direction === Direction.FROM_BTC">{{converter.currency.sign}}</span>
+          <span *ngIf="converter.direction === Direction.TO_BTC">&#x0e3f;</span>
+          {{calculateResult() | number:'1.2-2'}}
+          </span>
+        </div>
+
+
+        <div class="help-block">Exchange rate updated every minute</div>
+
+        <div class="help-block" *ngIf="!tickerResult">
+          Loading rates...
+        </div>
+
+
+        <div class="help-block" *ngIf="tickerResult">
+          Last update was at {{tickerResult.timestamp | date:'HH:mm'}} <br/>
+          <span>1 BTC = {{converter.currency.sign}}
+          <span *ngIf="converter.currency.id === 'EUR'">{{tickerResult.priceEur}}</span>
+          <span *ngIf="converter.currency.id === 'USD'">{{tickerResult.priceUsd}}</span>
+          (bid)</span>
+        </div>
+
+      </div>
+
+      <div class="text-danger" *ngIf="error">An error occurred: <br />{{error}}</div>
+
+    </div>
+  </div>
+</div>

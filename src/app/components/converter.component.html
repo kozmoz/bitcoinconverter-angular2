@@ -1,0 +1,75 @@
+<div class="row converter-block-title">
+  <h2>Bitcoin Converter</h2>
+</div>
+
+<div class="row converter-block">
+
+  <div class="col-sm-6">
+
+    <form #f="ngForm" class="form-horizontal" novalidate>
+
+
+      <div class="form-group">
+        <label class="col-xs-3 control-label" for="currencyField">Currency</label>
+
+        <div class="col-xs-9">
+          <select id="currencyField" name="currencyField" class="form-control" [(ngModel)]="converter.currency">
+            <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-xs-3 control-label" for="directiontobtc">Direction</label>
+
+        <div class="col-xs-9">
+          <div class="radio">
+            <label>
+              <input type="radio" name="directionField" id="directiontoeur" [(ngModel)]="converter.direction" [value]="Direction.FROM_BTC">
+              From Bitcoin to {{converter.currency}}
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="directionField" id="directiontobtc" [(ngModel)]="converter.direction" [value]="Direction.TO_BTC">
+              From {{converter.currency}} to Bitcoin
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group has-error" [ngClass]="{'has-error': amount.invalid}">
+        <label class="col-xs-3 control-label" for="amountField">Amount</label>
+
+        <div class="col-xs-9">
+          <div class="input-group">
+            <div *ngIf="converter.direction === Direction.FROM_BTC" class="input-group-addon">&#x0e3f;</div>
+            <div *ngIf="converter.direction === Direction.TO_BTC" class="input-group-addon">{{converter.currency.sign}}</div>
+
+            <input #amount="ngModel" type="text" id="amountField" name="amountField" maxlength="6" pattern="[0-9]*" required class="form-control"
+                   [(ngModel)]="converter.amount"/>
+          </div>
+
+          <span class="help-block">The amount as whole number</span>
+
+          <div *ngIf="amount.dirty || amount.touched">
+            <span *ngIf="amount.control.hasError('pattern')" class="text-danger">Only numbers are allowed</span>
+            <span *ngIf="amount.control.hasError('required')" class="text-danger">The amounts field is required</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- Show the calculated results. -->
+  <app-converter-result [converter]="converter">
+  </app-converter-result>
+
+
+</div>

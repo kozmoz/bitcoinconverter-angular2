@@ -1,0 +1,21 @@
+.converter-block-result-wrapper {
+  text-align: center;
+  padding: 0 10px 20px 10px;
+}
+
+.converter-block-result {
+  margin: 0 auto;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  border: 3px solid #00256f;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.converter-block-result-exchangerate {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

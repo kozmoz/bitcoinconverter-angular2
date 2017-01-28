@@ -1,0 +1,22 @@
+.converter-block-title {
+  color: white;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: linear-gradient(to bottom, #184791 0%, #00256f 100%);
+}
+
+.converter-block-title h2 {
+  margin: 10px 0;
+}
+
+.converter-block {
+  border: 1px solid #cdcdd1;
+  background-color: #e4e4e8;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  padding-top: 20px;
+}
+
+
