@@ -2,8 +2,8 @@
  * Domain object for converter result.
  */
 export class TickerResult {
-  constructor(public priceUsd: number,
-              public priceEur: number,
-              public timestamp: Date) {
+  constructor(public readonly priceUsd: number,
+              public readonly priceEur: number,
+              public readonly timestamp: Date) {
   }
 }

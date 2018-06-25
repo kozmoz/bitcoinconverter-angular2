@@ -1,11 +1,10 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {Converter} from "../domain/converter";
-import {TickerResult} from "../domain/ticker-result";
-import {TickerService} from "../services/ticker.service";
-import {Observable} from "rxjs/Observable";
-import {Direction} from "../domain/direction";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/observable/timer";
+import {Component, Input, OnInit} from '@angular/core';
+import {Converter} from '../domain/converter';
+import {TickerResult} from '../domain/ticker-result';
+import {TickerService} from '../services/ticker.service';
+import {Direction} from '../domain/direction';
+import {timer} from 'rxjs';
+import {switchMap} from 'rxjs/operators';
 
 /**
  * Show the total cost in EUR or USD for the given amount of BTC.
@@ -36,9 +35,10 @@ export class ConverterResultComponent implements OnInit {
   ngOnInit(): void {
 
     // Get new price immediately and after that every minute.
-    Observable
-      .timer(0, 60000)
-      .switchMap(() => this.tickerService.getTickerInfo())
+    // Observable
+    timer(0, 60000)
+      .pipe(
+        switchMap(() => this.tickerService.getTickerInfo()))
       .subscribe(update => {
         if (typeof update === 'string') {
           this.error = update;

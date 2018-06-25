@@ -12,3 +12,9 @@ Start a NG Live Development Server running on http://localhost:4200
 
     $ npm install
     $ npm start
+
+
+Documentation
+-------------
+RxJS migration guide:
+https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/v6/migration.md 

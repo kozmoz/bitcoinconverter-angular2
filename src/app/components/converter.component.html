@@ -26,13 +26,15 @@
         <div class="col-xs-9">
           <div class="radio">
             <label>
-              <input type="radio" name="directionField" id="directiontoeur" [(ngModel)]="converter.direction" [value]="Direction.FROM_BTC">
+              <input type="radio" name="directionField" id="directiontoeur" [(ngModel)]="converter.direction"
+                     [value]="Direction.FROM_BTC">
               From Bitcoin to {{converter.currency}}
             </label>
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="directionField" id="directiontobtc" [(ngModel)]="converter.direction" [value]="Direction.TO_BTC">
+              <input type="radio" name="directionField" id="directiontobtc" [(ngModel)]="converter.direction"
+                     [value]="Direction.TO_BTC">
               From {{converter.currency}} to Bitcoin
             </label>
           </div>
@@ -46,9 +48,12 @@
         <div class="col-xs-9">
           <div class="input-group">
             <div *ngIf="converter.direction === Direction.FROM_BTC" class="input-group-addon">&#x0e3f;</div>
-            <div *ngIf="converter.direction === Direction.TO_BTC" class="input-group-addon">{{converter.currency.sign}}</div>
+            <div *ngIf="converter.direction === Direction.TO_BTC" class="input-group-addon">
+              {{converter.currency.sign}}
+            </div>
 
-            <input #amount="ngModel" type="text" id="amountField" name="amountField" maxlength="6" pattern="[0-9]*" required class="form-control"
+            <input #amount="ngModel" type="text" id="amountField" name="amountField" maxlength="6" pattern="[0-9]*"
+                   required class="form-control"
                    [(ngModel)]="converter.amount"/>
           </div>
 
