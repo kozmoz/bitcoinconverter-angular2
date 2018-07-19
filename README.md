@@ -1,9 +1,9 @@
-**Bitcoin Converter written in Angular 2.3.**
+**Bitcoin Converter written in Angular 6.**
 
 Based on blog post [in Dutch]:
 
-Angular2; The successor of AngularJS 1
-https://juur.link/2017/01/angular2/
+Angular; The successor of AngularJS
+https://juur.link/todo/
 
 
 Running
